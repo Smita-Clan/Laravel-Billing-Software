@@ -47,7 +47,8 @@
                     <td>{{ $product->total_product}} </td>
                     <td>{{ $product->product_description}} </td>
 					<td>{{ $product->created_at }} </td>
-					<td><a  href="{{ url('/editProduct/'.$product->id) }}"  data-toggle="modal" data-target="#exampleModal" class="btn btn-primary sm">{{__('app.common.edit') }} </a>
+					<td><input type="hidden" id="cat" value="{{ $product->category }}">
+						<a  href="{{ url('/editProduct/'.$product->id) }}"  data-toggle="modal" data-target="#exampleModal" class="btn btn-primary sm">{{__('app.common.edit') }} </a>
 				</tr>
 				<?php $count++; ?>
 			@endforeach			
@@ -71,11 +72,12 @@ $(document).on('click','#tbody .dett',function(){
 	$('#pId').val($(this).attr('id'));
 	$('#productCode').val(tableData[1]);
 	$('#productname').val(tableData[2]);
-	$('#Pcategory').val(tableData[3]);
+	//$('#Pcategory').val(tableData[3]);
 	$('#unitPrice').val(tableData[4]);
 	$('#sellingPrice').val(tableData[5]);
 	$('#Quantity').val(tableData[6]);
 	$('#message-text').text(tableData[7]);
+	$('#Pcategory').val('1')
 	tableData.length = 0;
 });
 </script>
